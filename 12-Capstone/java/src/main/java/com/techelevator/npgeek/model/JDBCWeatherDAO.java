@@ -39,7 +39,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 	private Weather mapRowToWeather(SqlRowSet row) {
 		Weather weather = new Weather();
 		weather.setParkCode(row.getString("parkcode"));
-		weather.setDay(row.getInt("fivedayforecastvalue"));
+		weather.setDay(getDayString(row.getInt("fivedayforecastvalue")));
 		weather.setLowTemp(row.getInt("low"));
 		weather.setHighTemp(row.getInt("high"));
 		weather.setForecast(row.getString("forecast"));
@@ -48,6 +48,30 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		
 		return weather;
 	}
+	
+	public String getDayString(Integer day) {
+		String answer = ""; 
+		switch(day) {
+		case 1: 
+			answer = "Monday";
+			break;
+		case 2:
+			answer = "Tuesday";
+			break;
+		case 3: 
+			answer = "Wednesday";
+			break;
+		case 4: 
+			answer = "Thursday";
+			break;
+		case 5: 
+			answer = "Friday";
+			break;
+		}
+			
+		return answer;
+	}
+	
 	
 	public String advisory(String forecast, Integer lowTemp, Integer highTemp) {
 		String advisoryMessage = "";

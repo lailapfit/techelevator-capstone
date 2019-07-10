@@ -2,7 +2,7 @@ package com.techelevator.naturalpark;
 
 public class Weather {
 	private String parkCode;
-	private Integer day;
+	private String day;
 	private Integer lowTemp;
 	private Integer highTemp;
 	private String forecast;
@@ -18,10 +18,10 @@ public class Weather {
 	public void setParkCode(String parkCode) {
 		this.parkCode = parkCode;
 	}
-	public Integer getDay() {
+	public String getDay() {
 		return day;
 	}
-	public void setDay(Integer day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 	public Integer getLowTemp() {
