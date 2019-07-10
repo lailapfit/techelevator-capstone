@@ -77,10 +77,11 @@ public class JDBCWeatherDAO implements WeatherDAO {
 	}
 	
 	private String correctedImgWeatherName(String imgWeatherName) {
-		if(imgWeatherName.contains("partly cloudy")) {
-			imgWeatherName = "partlyCloudy";
-		}
 		String correctedWeatherName = imgWeatherName.toLowerCase();
+		if(imgWeatherName.equals("partly cloudy")) {
+			correctedWeatherName = "partlyCloudy";
+		}
+
 		return correctedWeatherName;
 	}
 }

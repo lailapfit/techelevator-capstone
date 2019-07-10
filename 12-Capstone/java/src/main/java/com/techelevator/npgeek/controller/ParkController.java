@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.techelevator.naturalpark.Park;
+import com.techelevator.naturalpark.Weather;
 import com.techelevator.npgeek.model.ParkDAO;
 import com.techelevator.npgeek.model.WeatherDAO;
 
@@ -35,12 +36,14 @@ public class ParkController {
 	public String displayParkDetailPage(HttpServletRequest request) {
 		String parkCode = request.getParameter("parkCode");
 		Park park = dao.getParkById(parkCode);
+		List<Weather> weatherList = wdao.getWeatherByParkId(parkCode);
 		
 		request.setAttribute("park", park);
-		
+		request.setAttribute("weather", weatherList);
 		
 		return "parkDetail";
 	}
+
 
 
 }

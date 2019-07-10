@@ -27,7 +27,15 @@ ${park.entreeFee}
 ${park.animalSpecies}
 <c:url var="details" value="/parkDetail?parkCode=${park.parkCode}"/>
 
-
+<c:forEach var="weatherList" items="${weather}">
+<c:url var="weatherImageUrl" value="/img/weather/${weatherList.imgWeatherName}.png"/>
+<img src="${weatherImageUrl}"></a>
+<p>${weatherList.lowTemp}</p>
+<p>${weatherList.highTemp}</p>
+<p>${weatherList.forecast}</p>
+<p>${weatherList.day}</p>
+<p>${weatherList.advisory}</p>
+</c:forEach>
 
 
 </p>
