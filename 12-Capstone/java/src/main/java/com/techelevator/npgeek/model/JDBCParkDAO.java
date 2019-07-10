@@ -8,9 +8,11 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.naturalpark.Park;
 
+@Component
 public class JDBCParkDAO implements ParkDAO {
 
 	private JdbcTemplate jdbcTemplate;
