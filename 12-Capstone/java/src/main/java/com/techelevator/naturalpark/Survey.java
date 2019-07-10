@@ -1,15 +1,19 @@
 package com.techelevator.naturalpark;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Survey {
 
 	private String parkCode;
+	
+	@NotBlank(message="Please enter an email address")
+	@Email(message="Please enter a valid email address")
 	private String email;
+	
 	private String state;
 	private String activityLevel;
-	
-	
-	
-	
+
 	public String getParkCode() {
 		return parkCode;
 	}

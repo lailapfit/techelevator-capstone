@@ -2,9 +2,12 @@ package com.techelevator.npgeek.model;
 
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.techelevator.naturalpark.Park;
 import com.techelevator.naturalpark.Survey;
 
+@Component
 public interface SurveyDAO {
 
 	//returns a map containing parks and their associated vote count
