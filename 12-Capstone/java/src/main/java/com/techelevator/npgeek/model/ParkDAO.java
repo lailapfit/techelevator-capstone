@@ -1,10 +1,12 @@
 package com.techelevator.npgeek.model;
 
 import java.util.List;
-import java.util.Map;
+
+import org.springframework.stereotype.Component;
 
 import com.techelevator.naturalpark.Park;
 
+@Component
 public interface ParkDAO {
 
 	//returns a list containing park objects for every park in the DB
