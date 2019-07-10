@@ -4,16 +4,23 @@
 
 <%@include file="common/header.jsp"%>
 
-<c:url var="ParkDetailUrl" value="/parkDetail"/>
-<a href="${ParkDetailUrl }">
+ 
 
 <c:forEach items="${parks}" var="park">
 <p>
 ${park.parkName}
+${park.description}
+${park.parkName}
+<c:url var="details" value="/parkDetail?parkCode=${park.parkCode}"/>
+
+<a href="${details}">
+<c:url var="ImageUrl" value="/img/parks/${park.imgParkName}.jpg"/>
+<img src="${ImageUrl }"></a>
+
 
 </p>
 </c:forEach>
 
 
-<p>Homepage is here</p></a>
+<p>Homepage is here</p>
 <%@include file="common/footer.jsp"%>
