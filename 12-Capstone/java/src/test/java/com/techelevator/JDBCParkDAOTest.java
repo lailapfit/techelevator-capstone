@@ -1,8 +1,7 @@
 package com.techelevator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -18,7 +17,7 @@ public class JDBCParkDAOTest extends DAOIntegrationTest {
 
 	@Before
 	public void setUp() throws Exception {
-		Park park = new Park();
+		
 		String sqlInsertTest = "INSERT INTO park " + 
 				"(parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies) " + 
 				"VALUES " + 
