@@ -27,20 +27,18 @@ public class JDBCSurveyDAOTest extends DAOIntegrationTest {
 		
 		String sqlInsertTest = "INSERT INTO survey_result " + 
 				"(parkcode, emailaddress, state, activitylevel) " + 
-				"VALUES " + 
-				"('ENP', 'hienp@test.com', 'Florida', 'active')";
-		
+				"VALUES('CVNP', 'la@me.com', 'California', 'active')";
 				
-	jdbcTemplate.update(sqlInsertTest);
+		jdbcTemplate.update(sqlInsertTest);
 	}
 
 	@Test
 	public void testGetAllVotes() {
 		Map<String, Integer> allVotes = dao.getParkVotes();
-		Integer size = 2;
+		Integer size = 3;
 
 		assertEquals(size, allVotes.get("Cuyahoga Valley National Park"));
-		assertEquals(2, allVotes.size());
+		assertEquals(1, allVotes.size());
 		
 	}
 

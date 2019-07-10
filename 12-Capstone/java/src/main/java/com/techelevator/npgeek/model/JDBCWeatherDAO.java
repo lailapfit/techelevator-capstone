@@ -41,11 +41,44 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		weather.setLowTemp(row.getInt("low"));
 		weather.setHighTemp(row.getInt("high"));
 		weather.setForecast(row.getString("forecast"));
-		//weather.setAdvisory("logic goes here");
+		weather.setAdvisory(advisory(row.getString("forecast"), row.getInt("low"),row.getInt("high")));
+		weather.setImgWeatherName(correctedImgWeatherName(row.getString("forecast")));
 		
 		return weather;
 	}
-	//do we need to set this? 
-//	private String imgWeatherName;
 	
+	public String advisory(String forecast, Integer lowTemp, Integer highTemp) {
+		String advisoryMessage = "";
+		Integer lowHighTempRange = highTemp - lowTemp;
+		
+		if(forecast.contains("snow")) {
+			advisoryMessage = "Pack snowshoes.";
+		} else if(forecast.contains("rain")) {
+			advisoryMessage = "Pack rain gear and wear waterproof shoes.";
+		} else if(forecast.contains("thunderstorms")) {
+			advisoryMessage = "Seek shelter and avoid hiking on exposed ridges.";
+		} else if(forecast.contains("sunny")) {
+			advisoryMessage = "Pack sunblock.";
+		} 
+		
+		if(highTemp > 75) {
+			advisoryMessage += " Also bring an extra gallon of water.";
+		} else if(lowTemp < 20) {
+			advisoryMessage += " Also please be aware of exposure to frigid temperatures.";
+		}
+		
+		if(lowHighTempRange > 20) {
+			advisoryMessage += " Also wear breathable layers.";
+		}
+		
+		return advisoryMessage;
+	}
+	
+	private String correctedImgWeatherName(String imgWeatherName) {
+		if(imgWeatherName.contains("partly cloudy")) {
+			imgWeatherName = "partlyCloudy";
+		}
+		String correctedWeatherName = imgWeatherName.toLowerCase();
+		return correctedWeatherName;
+	}
 }
