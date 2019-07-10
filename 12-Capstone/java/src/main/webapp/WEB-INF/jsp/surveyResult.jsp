@@ -4,8 +4,6 @@
 
 <%@include file="common/header.jsp"%>
 
-
-
 <p>Survey results page is here</p>
 
 

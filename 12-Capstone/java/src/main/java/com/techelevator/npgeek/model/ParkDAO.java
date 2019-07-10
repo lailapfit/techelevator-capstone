@@ -11,7 +11,7 @@ public interface ParkDAO {
 	public List<Park> getAllParks();
 	
 	//returns information for the specific park selected
-	public Park getParkbyId();
+	public Park getParkById(String parkCode);
 	
 	
 	
