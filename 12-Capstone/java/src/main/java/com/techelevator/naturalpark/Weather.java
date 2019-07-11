@@ -4,14 +4,34 @@ public class Weather {
 	private String parkCode;
 	private String day;
 	private Integer lowTemp;
+	private Integer lowTempC;
 	private Integer highTemp;
+	private Integer highTempC;
 	private String forecast;
 	private String advisory;
 	private String imgWeatherName;
+	private boolean temperatureChoice;
 	
 	
 	
-	
+	public Integer getLowTempC() {
+		return lowTempC;
+	}
+	public void setLowTempC(Integer lowTempC) {
+		this.lowTempC = lowTempC;
+	}
+	public Integer getHighTempC() {
+		return highTempC;
+	}
+	public void setHighTempC(Integer highTempC) {
+		this.highTempC = highTempC;
+	}
+	public boolean isTemperatureChoice() {
+		return temperatureChoice;
+	}
+	public void setTemperatureChoice(boolean temperatureChoice) {
+		this.temperatureChoice = temperatureChoice;
+	}
 	public String getParkCode() {
 		return parkCode;
 	}

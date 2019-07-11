@@ -1,14 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:set var="pageTitle" value="Park Details"/>
 
 <%@include file="common/header.jsp"%>
-<c:url var="SurveylUrl" value="/survey"/>
-<a href="${SurveylUrl}">
 
-<a href="${details}">
+<c:url var="formAction" value="/parkDetail?parkCode=${park.parkCode}" />
+<form action="${formAction}" method="POST">
+
+<input name="temperatureChoice" type="radio" value="false">Farenheit
+<input name="temperatureChoice" type="radio" value="true">Celcius
+<input type="hidden" name="parkCode" value="${park.parkCode }">
+<input type="submit">
+ 
+</form>
+
+
 <c:url var="ImageUrl" value="/img/parks/${park.imgParkName}.jpg"/>
-<img src="${ImageUrl }"></a>
+<img src="${ImageUrl }">
 
 <p>
 ${park.parkName}
@@ -25,24 +34,24 @@ ${park.quoteSource}
 ${park.description}
 ${park.entreeFee}
 ${park.animalSpecies}
+</p>
 <c:url var="details" value="/parkDetail?parkCode=${park.parkCode}"/>
 
 <c:forEach var="weatherList" items="${weather}">
 <c:url var="weatherImageUrl" value="/img/weather/${weatherList.imgWeatherName}.png"/>
 <img src="${weatherImageUrl}"></a>
-<p>${weatherList.lowTemp}</p>
-<p>${weatherList.highTemp}</p>
+<c:if test="${weatherList.temperatureChoice == false}">
+<p>${weatherList.lowTemp}F</p>
+<p>${weatherList.highTemp}F</p>
+</c:if>
+<c:if test="${weatherList.temperatureChoice == true}">
+<p>${weatherList.lowTempC}C</p>
+<p>${weatherList.highTempC}C</p>
+</c:if>
 <p>${weatherList.forecast}</p>
 <p>${weatherList.day}</p>
 <p>${weatherList.advisory}</p>
 </c:forEach>
 
-
-</p>
-
-
-
-<p>Park detail page is here</p>
-</a>
 
 <%@include file="common/footer.jsp"%>

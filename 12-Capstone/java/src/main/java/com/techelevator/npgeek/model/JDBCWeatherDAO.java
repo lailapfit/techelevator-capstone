@@ -42,11 +42,23 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		weather.setDay(getDayString(row.getInt("fivedayforecastvalue")));
 		weather.setLowTemp(row.getInt("low"));
 		weather.setHighTemp(row.getInt("high"));
+		weather.setLowTempC(celciusConverter(row.getInt("low")));
+		weather.setHighTempC(celciusConverter(row.getInt("high")));
 		weather.setForecast(row.getString("forecast"));
 		weather.setAdvisory(advisory(row.getString("forecast"), row.getInt("low"),row.getInt("high")));
 		weather.setImgWeatherName(correctedImgWeatherName(row.getString("forecast")));
-		
+		weather.setTemperatureChoice(false);
 		return weather;
+	}
+	
+	//calculation to add celcius to our weather objects
+	private Integer celciusConverter(int temp) {
+		Double celciusTemp = (double) ((temp-32) * 0.5555555555555555555);
+		 
+		 
+		Integer celciusTempInt =  celciusTemp.intValue();
+		
+		return celciusTempInt;
 	}
 	
 	public String getDayString(Integer day) {
