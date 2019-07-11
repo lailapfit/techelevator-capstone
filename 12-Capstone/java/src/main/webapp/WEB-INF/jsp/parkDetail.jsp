@@ -40,13 +40,13 @@ ${park.animalSpecies}
 <c:forEach var="weatherList" items="${weather}">
 <c:url var="weatherImageUrl" value="/img/weather/${weatherList.imgWeatherName}.png"/>
 <img src="${weatherImageUrl}"></a>
-<c:if test="${weatherList.temperatureChoice == false}">
-<p>${weatherList.lowTemp}F</p>
-<p>${weatherList.highTemp}F</p>
+<c:if test="${temperatureChoice == false}">
+<p>${weatherList.lowTemp}&#8457</p>
+<p>${weatherList.highTemp}&#8457</p>
 </c:if>
-<c:if test="${weatherList.temperatureChoice == true}">
-<p>${weatherList.lowTempC}C</p>
-<p>${weatherList.highTempC}C</p>
+<c:if test="${temperatureChoice == true}">
+<p>${weatherList.lowTempC}&#8451</p>
+<p>${weatherList.highTempC}&#8451</p>
 </c:if>
 <p>${weatherList.forecast}</p>
 <p>${weatherList.day}</p>

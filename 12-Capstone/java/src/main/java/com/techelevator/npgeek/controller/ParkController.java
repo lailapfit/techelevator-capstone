@@ -18,7 +18,7 @@ import com.techelevator.npgeek.model.ParkDAO;
 import com.techelevator.npgeek.model.WeatherDAO;
 
 @Controller
-@SessionAttributes({"parkCode", "park"})
+@SessionAttributes({"parkCode", "park", "temperatureChoice"})
 public class ParkController {
 
 	@Autowired
@@ -51,19 +51,15 @@ public class ParkController {
 		List<Weather> weatherList = wdao.getWeatherByParkId(parkCode);
 		map.addAttribute("park", park);
 		request.setAttribute("weather", weatherList);
-		
+		map.addAttribute("parkCode", parkCode);
 		return "parkDetail";
 	}
 	 @RequestMapping(path="/parkDetail", method=RequestMethod.POST)
-	 public String addTemperatureChange(@RequestParam boolean temperatureChoice, 
-			 HttpServletRequest request, ModelMap map) {
-		 //@RequestParam boolean temperatureChoice,
-		 request.setAttribute("parkCode", map.get("park"));
+	 public String addTemperatureChange(@RequestParam boolean temperatureChoice,
+			  ModelMap map) {
+		
+		map.addAttribute("temperatureChoice", temperatureChoice);
 		 
-		// Park park = (Park) map.get("park");
-		// String temperatureChoice = (String) map.get("parkCode");
-	//	 map.addAttribute("parkCode", temperatureChoice);
-		 //map.addAttribute("park", park);
 		 return "redirect:/parkDetail";
 	 }
 

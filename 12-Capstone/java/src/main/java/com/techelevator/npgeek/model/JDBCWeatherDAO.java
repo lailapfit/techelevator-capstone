@@ -47,7 +47,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		weather.setForecast(row.getString("forecast"));
 		weather.setAdvisory(advisory(row.getString("forecast"), row.getInt("low"),row.getInt("high")));
 		weather.setImgWeatherName(correctedImgWeatherName(row.getString("forecast")));
-		weather.setTemperatureChoice(false);
+		
 		return weather;
 	}
 	

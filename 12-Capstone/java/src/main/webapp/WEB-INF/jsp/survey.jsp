@@ -9,22 +9,27 @@
 
 <c:url var="formAction" value="/survey" />
 <form:form action="${formAction}" method="POST" modelAttribute="survey">
-
-	<label for="parkCode">Park Name</label> 
-	<form:select path="parkCode">
+<table>
+<tr>
+	<th><label for="parkCode">Park Name</label></th> 	
+	<td><form:select path="parkCode">
 	<form:option value="">Select your favorite park!</form:option>
 		<c:forEach var="park" items="${dailySurvey}">
 			<form:option value="${park.parkCode}">${park.parkName}</form:option>
 		</c:forEach>
 	</form:select>
-	 <form:errors path="parkCode"/>
-	 
-	<form:label path="email">Your Email</form:label> 
-	<form:input path="email" name="email" /><br />
-	<form:errors path="email"/>
-	
-	<form:label path="state">Resident State</form:label> 
-	<form:select path="state">
+	 <form:errors path="parkCode"/></td>
+	 </tr>
+		 
+<tr>
+	<th><form:label path="email">Your Email</form:label></th>
+	<td><form:input path="email" name="email" /><br />
+	<form:errors path="email"/></td>
+</tr>
+
+<tr>	
+	<th><form:label path="state">Resident State</form:label></th>
+	<td><form:select path="state">
 		<form:option value="">Select a State</form:option>
 		<form:option value="AL">Alabama</form:option>
 		<form:option value="AK">Alaska</form:option>
@@ -78,20 +83,25 @@
 		<form:option value="WI">Wisconsin</form:option>
 		<form:option value="WY">Wyoming</form:option>
 	</form:select> 
-		<form:errors path="state"/>
-	
-	<form:label path="activityLevel">Activity Level</form:label> 
-	<form:select path="activityLevel">
+		<form:errors path="state"/></td>
+</tr>
+
+<tr>
+	<th><form:label path="activityLevel">Activity Level</form:label></th>
+	<td><form:select path="activityLevel">
 		<form:option value="">Select activity Level</form:option>
 		<form:option value="inactive">Inactive</form:option>
 		<form:option value="sedentary">Sedentary</form:option>
 		<form:option value="active">Active</form:option>
 		<form:option value="extremelyActive">Extremely Active</form:option>
 	</form:select> 
-	<form:errors path="activityLevel"/>
-	
-	<input type="submit" value="Submit" />
+	<form:errors path="activityLevel"/></td>
+</tr>
 
+<tr>
+	<th><input type="submit" value="Submit" /></th>
+</tr>
+</table>
 </form:form>
 
 <%@include file="common/footer.jsp"%>

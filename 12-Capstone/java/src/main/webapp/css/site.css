@@ -1,17 +1,56 @@
 body {
-    padding-top: 50px;
+    padding-top: 15px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 100px;
+    max-width: 200px;
 }
+
+ul{
+	padding: 0;
+	margin-top: 0;
+	
+}
+ul a {
+		color: white;
+		padding: 8px;
+		text-decoration: none;
+	
+}
+
+header img {
+	width: 30%;
+	
+}
+header{
+	background-color: #0375B4;
+}
+
+nav{
+	background-color:orange;	
+	}
+
+#parkBlock {
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+	
+}
+
+#parkName {
+	padding-top: 70px;
+	padding-left: 5px;
+}
+	
+	

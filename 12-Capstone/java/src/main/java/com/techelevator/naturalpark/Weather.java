@@ -10,7 +10,7 @@ public class Weather {
 	private String forecast;
 	private String advisory;
 	private String imgWeatherName;
-	private boolean temperatureChoice;
+	
 	
 	
 	
@@ -26,12 +26,7 @@ public class Weather {
 	public void setHighTempC(Integer highTempC) {
 		this.highTempC = highTempC;
 	}
-	public boolean isTemperatureChoice() {
-		return temperatureChoice;
-	}
-	public void setTemperatureChoice(boolean temperatureChoice) {
-		this.temperatureChoice = temperatureChoice;
-	}
+
 	public String getParkCode() {
 		return parkCode;
 	}
