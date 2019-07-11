@@ -2,6 +2,7 @@ package com.techelevator.npgeek.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,14 +28,16 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	
 	//we still need to order alphabetically and limit results to 5
 	@Override
-	public Map<String, Integer> getParkVotes() {
+	public LinkedHashMap<String, Integer> getParkVotes() {
 		
-		Map<String, Integer> surveyMap = new HashMap<>();
+		LinkedHashMap<String, Integer> surveyMap = new LinkedHashMap<>();
 		
 		String sqlSelectAllVotes = "SELECT park.parkname, COUNT (*) " + 
 				"FROM survey_result " + 
 				"JOIN park on park.parkcode = survey_result.parkcode " + 
-				"GROUP BY park.parkname";
+				"GROUP BY park.parkname " + 
+				"ORDER BY count DESC, parkname ASC " +
+				"LIMIT 5";
 	
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllVotes);
 		while (results.next()) {

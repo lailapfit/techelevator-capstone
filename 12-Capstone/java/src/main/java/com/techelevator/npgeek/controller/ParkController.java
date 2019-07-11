@@ -27,6 +27,13 @@ public class ParkController {
 	@Autowired
 	private WeatherDAO wdao;
 	
+	
+	@RequestMapping("/")
+	public String displayHomepageAtRoot() {
+
+		return "redirect:/homepage";
+	}
+	
 	@RequestMapping(path="/homepage", method=RequestMethod.GET)
 	public String displayHomepage(HttpServletRequest request) {
 		
@@ -48,9 +55,11 @@ public class ParkController {
 		return "parkDetail";
 	}
 	 @RequestMapping(path="/parkDetail", method=RequestMethod.POST)
-	 public String addTemperatureChange(@RequestParam boolean temperatureChoice,
+	 public String addTemperatureChange(@RequestParam boolean temperatureChoice, 
 			 HttpServletRequest request, ModelMap map) {
-		 request.setAttribute("park", map.get("park"));
+		 //@RequestParam boolean temperatureChoice,
+		 request.setAttribute("parkCode", map.get("park"));
+		 
 		// Park park = (Park) map.get("park");
 		// String temperatureChoice = (String) map.get("parkCode");
 	//	 map.addAttribute("parkCode", temperatureChoice);

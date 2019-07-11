@@ -5,10 +5,7 @@
 
 <%@include file="common/header.jsp"%>
 
-<c:url var="SurveyResultlUrl" value="/surveyResult" />
-<a href="${SurveyResultlUrl}">
-	<p>Survey page is here</p>
-</a>
+
 
 <c:url var="formAction" value="/survey" />
 <form:form action="${formAction}" method="POST" modelAttribute="survey">

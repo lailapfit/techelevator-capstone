@@ -1,6 +1,8 @@
 package com.techelevator.npgeek.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -56,7 +58,13 @@ public class SurveyController {
 	}
 	
 	@RequestMapping(path="/surveyResult", method=RequestMethod.GET)
-	public String displaySurveyResult() {
+	public String displaySurveyResult(HttpServletRequest request) {
+
+		LinkedHashMap<String, Integer> surveys = sdao.getParkVotes();
+		
+		request.setAttribute("surveys", surveys);
+		
+		
 		
 		return "surveyResult";
 	}
