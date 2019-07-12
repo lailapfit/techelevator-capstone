@@ -87,20 +87,16 @@
 </tr>
 
 <tr>
-	<th><form:label path="activityLevel">Activity Level</form:label></th>
-	<td><form:select path="activityLevel">
-		<form:option value="">Select activity Level</form:option>
-		<form:option value="inactive">Inactive</form:option>
-		<form:option value="sedentary">Sedentary</form:option>
-		<form:option value="active">Active</form:option>
-		<form:option value="extremelyActive">Extremely Active</form:option>
-	</form:select> 
-	<form:errors path="activityLevel"/></td>
-</tr>
+	<th><label name="activityLevel">Activity Level</label></th>
+
+		<td><input name="activityLevel" type="radio" value="inactive">Inactive</input>
+		<input name="activityLevel" type="radio" value="sedentary">Sedentary</input>
+		<input name="activityLevel" type="radio" value="active">Active</input>
+		<input name="activityLevel" type="radio" value="extremelyActive">Extremely Active</input></td></tr>
 
 <tr>
-	<th><input type="submit" value="Submit" /></th>
-</tr>
+	<th><input type="submit" value="Submit" /></th></tr>
+
 </table>
 </form:form>
 

@@ -4,9 +4,12 @@
 
 <%@include file="common/header.jsp"%>
 
-<p>Here are the results for our top 5 National Parks survey! Thanks
-	for voting!</p>
-<table>
+<h2>Here are the results for our top 5 National Parks survey! Thanks
+	for voting!</h2>
+	<div id="surveyResults">
+<table id="resultTable">
+<th>Park Name</th>
+<th>Votes</th>
 	<c:forEach var="survey" items="${surveys}">
 		<tr>
 			<td>${survey.key}</td>
@@ -14,5 +17,5 @@
 		</tr>
 	</c:forEach>
 </table>
-
+</div>
 <%@include file="common/footer.jsp"%>
