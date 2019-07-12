@@ -11,11 +11,10 @@
 		<a href="${details}"> <c:url var="ImageUrl"	value="/img/parks/${park.imgParkName}.jpg" /> 
 		<img src="${ImageUrl}"></a>
 		<div id="parkName">
-			<h4>${park.parkName}</h4>
+			<h4>${park.parkName} - ${park.state}</h4>
 			<br>
 			<br> ${park.description}
 		</div>
-
 	</div>
 </c:forEach>
 
