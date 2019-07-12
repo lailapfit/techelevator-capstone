@@ -22,10 +22,9 @@ ul{
 	
 }
 ul a {
-		color: white;
-		padding: 8px;
-		text-decoration: none;
-	
+	color: black;
+	padding: 8px;
+	text-decoration: none;
 }
 
 header img {
@@ -33,11 +32,11 @@ header img {
 	
 }
 header{
-	background-color: #0375B4;
+	background-color: #b3daff;
 }
 
 nav{
-	background-color:orange;	
+	background-color:#ffcc80;	
 	}
 
 #parkBlock {
@@ -116,14 +115,38 @@ nav{
   	margin-right: auto;	
  }
  
- #weather {
- 	display: flex;
+ #weatherDetails {
+ 	display: inline-block;
+ 	max-width: 15%;
+ 	text-align: center;
+	vertical-align: text-top;
  }
  
- #weather p:nth-child(1) {
- 	width: 500px;
+  #weatherDetails img {
+ 	width: 50%;
+ 	height: 50%; 
  }
  
-  #weather img:nth-child(1) {
-  	width: 500px;
+ #weather{
+ 	background-color: #e6f7ff;
  }
+ 
+ #weatherDetails:nth-child(1)  img{
+ 	width: 88%;
+	height: 88%; 
+ }
+ 
+ #weatherDetails:nth-child(1) {
+	padding-left: 50px;
+ 	padding-right: 99px;
+ }
+ 
+#weatherDetails:nth-child(1) p {
+ 	display: inline-block;
+ 	padding-right: 5px;
+ }
+
+ #tempConverter{
+ 	text-align: center;
+ }
+ 

@@ -11,20 +11,14 @@
 
 <body>
     <header>
-    		
     		<c:url value="/img/logo.png" var="logoSrc" />
-       
-        		<img src="${logoSrc}" alt="Natural Park logo" />
-       
+        	<img src="${logoSrc}" alt="Natural Park logo" />       
     </header>
     <nav>
-    
         <ul>
         	<c:url var="homepageHref" value="/homepage" />
             <a href="${homepageHref}">Homepage</a>
             <c:url var="surveyHref" value="/survey" />
-            <a href="${surveyHref}">Survey</a>
-                             
-        </ul>
-        
+            <a href="${surveyHref}">Survey</a>                
+        </ul>    
     </nav>

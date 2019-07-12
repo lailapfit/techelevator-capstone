@@ -14,7 +14,4 @@ public interface ParkDAO {
 	
 	//returns information for the specific park selected
 	public Park getParkById(String parkCode);
-	
-	
-	
-}
+	}

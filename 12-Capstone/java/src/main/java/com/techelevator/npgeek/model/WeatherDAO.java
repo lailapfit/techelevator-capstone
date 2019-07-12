@@ -9,10 +9,7 @@ import com.techelevator.naturalpark.Weather;
 @Component
 public interface WeatherDAO {
 
-	
-	//returns 5 weather objects for the selected park
+	//returns 5 weather objects for the selected park in a list
 	public List<Weather> getWeatherByParkId(String parkCode);
-	
-	
-	
+
 }

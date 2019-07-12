@@ -12,8 +12,6 @@ public class Weather {
 	private String imgWeatherName;
 	
 	
-	
-	
 	public Integer getLowTempC() {
 		return lowTempC;
 	}
@@ -69,7 +67,5 @@ public class Weather {
 	public void setImgWeatherName(String imgWeatherName) {
 		this.imgWeatherName = imgWeatherName;
 	}
-	
-	
 	
 }

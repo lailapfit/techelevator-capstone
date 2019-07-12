@@ -22,6 +22,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	//returns 5 weather objects for the selected park in a list
 	@Override
 	public List<Weather> getWeatherByParkId(String parkCode) {
 		List<Weather> weather = new ArrayList<Weather>();
@@ -35,7 +36,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		return weather;
 	}
 
-
+	//this takes sql results and maps them to new weather objects
 	private Weather mapRowToWeather(SqlRowSet row) {
 		Weather weather = new Weather();
 		weather.setParkCode(row.getString("parkcode"));
@@ -44,7 +45,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		weather.setHighTemp(row.getInt("high"));
 		weather.setLowTempC(celciusConverter(row.getInt("low")));
 		weather.setHighTempC(celciusConverter(row.getInt("high")));
-		weather.setForecast(row.getString("forecast"));
+		weather.setForecast(row.getString("forecast").toUpperCase());
 		weather.setAdvisory(advisory(row.getString("forecast"), row.getInt("low"),row.getInt("high")));
 		weather.setImgWeatherName(correctedImgWeatherName(row.getString("forecast")));
 		
@@ -54,14 +55,14 @@ public class JDBCWeatherDAO implements WeatherDAO {
 	//calculation to add celcius to our weather objects
 	private Integer celciusConverter(int temp) {
 		Double celciusTemp = (double) ((temp-32) * 0.5555555555555555555);
-		 
-		 
+		
 		Integer celciusTempInt =  celciusTemp.intValue();
 		
 		return celciusTempInt;
 	}
 	
-	public String getDayString(Integer day) {
+	//this method maps day names to replace the numbers in the sql results
+	private String getDayString(Integer day) {
 		String answer = ""; 
 		switch(day) {
 		case 1: 
@@ -84,7 +85,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		return answer;
 	}
 	
-	
+	//this method returns a clear sentence for the advisory message (public to allow testing)
 	public String advisory(String forecast, Integer lowTemp, Integer highTemp) {
 		String advisoryMessage = "";
 		Integer lowHighTempRange = highTemp - lowTemp;
@@ -100,18 +101,19 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		} 
 		
 		if(highTemp > 75) {
-			advisoryMessage += " Also bring an extra gallon of water.";
+			advisoryMessage += " Bring an extra gallon of water.";
 		} else if(lowTemp < 20) {
-			advisoryMessage += " Also please be aware of exposure to frigid temperatures.";
+			advisoryMessage += " Please be aware of exposure to frigid temperatures.";
 		}
 		
 		if(lowHighTempRange > 20) {
-			advisoryMessage += " Also wear breathable layers.";
+			advisoryMessage += " Wear breathable layers.";
 		}
 		
 		return advisoryMessage;
 	}
 	
+	//this method makes sure our sql results line up with the image naming convention
 	private String correctedImgWeatherName(String imgWeatherName) {
 		String correctedWeatherName = imgWeatherName.toLowerCase();
 		if(imgWeatherName.equals("partly cloudy")) {

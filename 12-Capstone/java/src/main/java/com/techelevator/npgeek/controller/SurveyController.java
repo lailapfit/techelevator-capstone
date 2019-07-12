@@ -2,7 +2,6 @@ package com.techelevator.npgeek.controller;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -32,6 +31,7 @@ public class SurveyController {
 	@Autowired
 	private SurveyDAO sdao;
 	
+	//we grab all parks and put them in a list to populate our user daily survey
 	@RequestMapping(path="/survey", method=RequestMethod.GET)
 	public String displaySurvey(ModelMap map) {
 		List<Park> parks = dao.getAllParks();	
@@ -44,6 +44,8 @@ public class SurveyController {
 		return "survey";
 	}
 	
+	//we perform a post redirect get to make sure the user data is valid with the model attribute
+	//we use flash to direct user to the survey results page
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
 	public String addSurvey(@Valid @ModelAttribute("survey") Survey survey, BindingResult result,
 			RedirectAttributes attr) {
@@ -57,14 +59,13 @@ public class SurveyController {
 		return "redirect:/surveyResult";
 	}
 	
+	//we call the survey DAO to query the vote totals and put them in a linkedhashmap
 	@RequestMapping(path="/surveyResult", method=RequestMethod.GET)
 	public String displaySurveyResult(HttpServletRequest request) {
 
 		LinkedHashMap<String, Integer> surveys = sdao.getParkVotes();
 		
 		request.setAttribute("surveys", surveys);
-		
-		
 		
 		return "surveyResult";
 	}

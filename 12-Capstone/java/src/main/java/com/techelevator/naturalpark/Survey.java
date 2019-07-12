@@ -1,11 +1,7 @@
 package com.techelevator.naturalpark;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 public class Survey {
 	@NotBlank(message="Please pick a park!")
@@ -17,6 +13,7 @@ public class Survey {
 	
 	@NotBlank(message="Please enter valid state")
 	private String state;
+	
 	@NotBlank(message="Please select your activity level")
 	private String activityLevel;
 

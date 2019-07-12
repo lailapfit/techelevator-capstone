@@ -12,7 +12,7 @@ public interface SurveyDAO {
 	//returns a map containing parks and their associated vote count
 	public LinkedHashMap<String, Integer> getParkVotes();
 	
-	//saves a new survey to the database from what the user inputted on the form page
+	//saves a new survey to the database from what the user input on the form page
 	public void save(Survey survey);
 	
 }

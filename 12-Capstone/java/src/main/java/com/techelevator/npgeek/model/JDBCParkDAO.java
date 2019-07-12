@@ -22,6 +22,7 @@ public class JDBCParkDAO implements ParkDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+	//returns a list containing park objects for every park in the DB
 	@Override
 	public List<Park> getAllParks() {
 		List<Park> allParks = new ArrayList<>();
@@ -33,7 +34,8 @@ public class JDBCParkDAO implements ParkDAO {
 		}
 		return allParks;
 	}
-
+	
+	//returns an object for the specific park selected
 	@Override
 	public Park getParkById(String parkCode) {
 		Park park = new Park();
@@ -47,6 +49,7 @@ public class JDBCParkDAO implements ParkDAO {
 		return park;
 	}
 
+	//this takes sql results and maps them to new park objects
 	private Park mapRowToPark(SqlRowSet row) {
 		Park park = new Park();
 		park.setParkCode(row.getString("parkcode"));
