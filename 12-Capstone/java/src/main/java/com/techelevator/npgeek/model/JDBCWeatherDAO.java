@@ -1,6 +1,8 @@
 package com.techelevator.npgeek.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -63,26 +65,32 @@ public class JDBCWeatherDAO implements WeatherDAO {
 	
 	//this method maps day names to replace the numbers in the sql results
 	private String getDayString(Integer day) {
-		String answer = ""; 
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+		Calendar c = Calendar.getInstance();
+		String output = sdf.format(c.getTime());
 		switch(day) {
 		case 1: 
-			answer = "Monday";
 			break;
 		case 2:
-			answer = "Tuesday";
+			c.add(Calendar.DATE, 1);
+			output = sdf.format(c.getTime());
 			break;
 		case 3: 
-			answer = "Wednesday";
+			c.add(Calendar.DATE, 2);
+			output = sdf.format(c.getTime());
 			break;
-		case 4: 
-			answer = "Thursday";
+		case 4:
+			c.add(Calendar.DATE, 3);
+			output = sdf.format(c.getTime());
 			break;
 		case 5: 
-			answer = "Friday";
+			c.add(Calendar.DATE, 4);
+			output = sdf.format(c.getTime());
 			break;
 		}
 			
-		return answer;
+		return output;
 	}
 	
 	//this method returns a clear sentence for the advisory message (public to allow testing)
