@@ -11,8 +11,7 @@
 		<a href="${details}"> <c:url var="ImageUrl"	value="/img/parks/${park.imgParkName}.jpg" /> 
 		<img src="${ImageUrl}"></a>
 		<div id="parkName">
-			<h4>${park.parkName} - ${park.state}</h4>
-			<br>
+			<h2>${park.parkName} - ${park.state}</h2>
 			<br> ${park.description}
 		</div>
 	</div>

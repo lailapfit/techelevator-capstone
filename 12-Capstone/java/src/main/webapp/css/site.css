@@ -1,6 +1,7 @@
 body {
     padding-top: 15px;
     padding-bottom: 20px;
+    font-family: sans-Serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,40 +17,48 @@ textarea {
     max-width: 200px;
 }
 
-ul{
-	padding: 0;
-	margin-top: 0;
-	
-}
-ul a {
-	color: black;
-	padding: 8px;
-	text-decoration: none;
-}
-
 header img {
-	width: 30%;
+	width: 40%;
 	
 }
 header{
 	background-color: #b3daff;
 }
 
-nav{
-	background-color:#ffcc80;	
-	}
+nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ffcc80;
+	
+}
+nav li {
+	float: left;
+}
+
+nav a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: white;
+}
 
 #parkBlock {
 	display: flex;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 50px 50px 50px 50px;
+	padding: 10px 10px 10px 10px;
 	letter-spacing: 1px;
 	border-style: groove;
 }
 
 #parkName {
-	padding-top: 5px;
-	padding-left: 5px;
+	padding: 0px 10px 10px 10px;
 }
 
 #surveyResults {
